@@ -13,7 +13,8 @@ namespace upc {
 
     for (unsigned int l = 0; l < r.size(); ++l) {
   		/// \TODO Compute the autocorrelation r[l]
-      // L'autocoorelació: 1r--> inicialitzar a 0; 2n--> Acumular valors; 3r-->divim per la llargada 
+      /// \FET
+      /// L'autocoorelació: 1r--> inicialitzar a 0; 2n--> Acumular valors; 3r-->divim per la llargada 
 
       r[l] = 0;
 
@@ -61,6 +62,8 @@ namespace upc {
     /// \TODO Implement a rule to decide whether the sound is voiced or not.
     /// * You can use the standard features (pot, r1norm, rmaxnorm),
     ///   or compute and use other ones.
+
+    if(rmaxnorm > umaxnorm) //Lo pasamos por linea de comando
     return true;
   }
 
