@@ -70,10 +70,10 @@ namespace upc {
     /// \FET 
     /// Mirem si el valor màxim de l'autocorrelació super el nostre llindar
 
-    if(rmaxnorm >= umaxnorm && r1norm >= unorm && pot >= pot1){ //Valores que pasamos por linea de comandos
-      return true;
+    if(rmaxnorm >= umaxnorm && (r1norm >= unorm || pot >= pot1)){ //Valores que pasamos por linea de comandos
+      return false;
     }
-    return false;
+    return true;
   }
 
   float PitchAnalyzer::compute_pitch(vector<float> & x) const {
