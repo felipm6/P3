@@ -27,7 +27,9 @@ Usage:
 Options:
     -h, --help  Show this screen
     --version   Show the version of the project
-    -m REAL, --umaxnorm=REAL   Umbral del màximo de la autocorrelación [default:0.5]
+    -m REAL, --umaxnorm=REAL   Umbral del màximo de la autocorrelación [default: 0.5]
+    -u REAL, --unorm=REAL   Segundo umbral autocorrelación [default: 0.4]
+    -p REAL, --pot1=REAL   Umbral de potencia [default: -16]
 
 
 Arguments:
@@ -41,6 +43,7 @@ int main(int argc, const char *argv[]) {
 	/// \TODO 
 	///  Modify the program syntax and the call to **docopt()** in order to
 	///  add options and arguments to the program.
+  ///FET Hem afegit umaxnorm unorm i pot1
     std::map<std::string, docopt::value> args = docopt::docopt(USAGE,
         {argv + 1, argv + argc},	// array of arguments, without the program name
         true,    // show help if requested
@@ -49,6 +52,10 @@ int main(int argc, const char *argv[]) {
 	std::string input_wav = args["<input-wav>"].asString();
 	std::string output_txt = args["<output-txt>"].asString();
   float umaxnorm = std::stof(args["--umaxnorm"].asString());
+  float unorm = std::stof(args["--unorm"].asString());
+  float pot1 = std::stof(args["--pot1"].asString());
+
+  float th = 0.0; //Llindar per central-clipping
 
   // Read input sound file
   unsigned int rate;
@@ -62,11 +69,21 @@ int main(int argc, const char *argv[]) {
   int n_shift = rate * FRAME_SHIFT;
 
   // Define analyzer
-  PitchAnalyzer analyzer(n_len, rate, PitchAnalyzer::RECT, 50, 500, umaxnorm);
+  PitchAnalyzer analyzer(n_len, rate, PitchAnalyzer::RECT, 50, 500, umaxnorm, unorm, pot1);
 
   /// \TODO
   /// Preprocess the input signal in order to ease pitch estimation. For instance,
   /// central-clipping or low pass filtering may be used.
+  ///FET 
+
+  float maxp = *std::max_element(x.begin(), x.end());
+  th = 0.027 * maxp;
+  for (long unsigned int i = 0; i < x.size(); i++)
+  {
+    if (abs(x[i]) < th){
+      x[i] = 0;
+    }
+  }
   
   // Iterate for each frame and save values in f0 vector
   vector<float>::iterator iX;
@@ -79,6 +96,18 @@ int main(int argc, const char *argv[]) {
   /// \TODO
   /// Postprocess the estimation in order to supress errors. For instance, a median filter
   /// or time-warping may be used.
+  ///FET El filtre de mediana amb zero-padding
+
+  vector<float> median(f0);
+  float min1, max1;
+
+  for (unsigned int i = 2; i < median.size() - 1; i++){
+
+    min1 = min(min(median[i - 1], median[i]), median[i + 1]);
+    max1 = max(max(median[i - 1], median[i]), median[i + 1]);
+    f0[i] = median[i - 1] + median[i] + median[i + 1] - min1 - max1;
+
+  }
 
   // Write f0 contour into the output file
   ofstream os(output_txt);

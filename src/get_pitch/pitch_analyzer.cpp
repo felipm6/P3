@@ -18,12 +18,11 @@ namespace upc {
 
       r[l] = 0;
 
-      for (unsigned int n = l; n < x.size(); n++)
-      {
+      for (unsigned int n = l; n < x.size(); n++){
         r[l] += x[n] * x[n - l];
       }
+
       r[l] /= x.size();
-    
     }
 
     if (r[0] == 0.0F) //to avoid log() and divide zero 
@@ -36,9 +35,15 @@ namespace upc {
 
     window.resize(frameLen);
 
+    float omega = 2.0 * 3.141592 / (frameLen - 1); //Valor per la implementació de la finestar de Hamming
+
     switch (win_type) {
     case HAMMING:
       /// \TODO Implement the Hamming window
+      ///FET Finestra de Hamming implementada
+      for (unsigned int i = 0; i < frameLen; i++){
+        window[i] = 0.54 - 0.28 * cosl(omega * i);
+      }
       break;
     case RECT:
     default:
@@ -62,9 +67,13 @@ namespace upc {
     /// \TODO Implement a rule to decide whether the sound is voiced or not.
     /// * You can use the standard features (pot, r1norm, rmaxnorm),
     ///   or compute and use other ones.
+    /// \FET 
+    /// Mirem si el valor màxim de l'autocorrelació super el nostre llindar
 
-    if(rmaxnorm > umaxnorm) //Lo pasamos por linea de comando
-    return true;
+    if(rmaxnorm >= umaxnorm && r1norm >= unorm && pot >= pot1){ //Valores que pasamos por linea de comandos
+      return true;
+    }
+    return false;
   }
 
   float PitchAnalyzer::compute_pitch(vector<float> & x) const {
@@ -89,6 +98,7 @@ namespace upc {
 	///    - The lag corresponding to the maximum value of the pitch.
     ///	   .
 	/// In either case, the lag should not exceed that of the minimum value of the pitch.
+  ///FET 
 
   for (iR = iRMax = (r.begin() + npitch_min); iR < (r.begin() + npitch_max); iR++){
 
