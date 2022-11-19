@@ -15,12 +15,12 @@ Ejercicios básicos
 
    * Complete el cálculo de la autocorrelación e inserte a continuación el código correspondiente.
    
-   ''' void PitchAnalyzer::autocorrelation(const vector<float> &x, vector<float> &r) const {
+   '''void PitchAnalyzer::autocorrelation(const vector<float> &x, vector<float> &r) const {
     for (unsigned int l = 0; l < r.size(); ++l) {
   		/// \TODO Compute the autocorrelation r[l]
       /// \FET
-      /// Per calcular la autocorrelació: 1r --> inicialitzar a 0; 2n --> Acumular valors; 3r -->divim per la llargada.'''
-     ''' r[l] = 0;
+      /// Per calcular la autocorrelació: 1r --> inicialitzar a 0; 2n --> Acumular valors; 3r -->divim per la llargada.
+      r[l] = 0;
       for (unsigned int n = l; n < x.size(); n++){
         r[l] += x[n] * x[n - l];
       }
