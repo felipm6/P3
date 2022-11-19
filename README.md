@@ -24,7 +24,7 @@ Ejercicios básicos
 	 NOTA: es más que probable que tenga que usar Python, Octave/MATLAB u otro programa semejante para
 	 hacerlo. Se valorará la utilización de la biblioteca matplotlib de Python.
 	 
-	 - ![Alt text](capt/senyal.jpg?raw=true "Senyal sonora 30 ms")	
+	 - ![Alt text](capt/senyal_i_auto.jpg?raw=true "Senyal sonora 30 ms")	
 
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
