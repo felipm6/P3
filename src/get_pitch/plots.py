@@ -1,19 +1,29 @@
-import librosa
 import matplotlib.pyplot as plt
-import IPython.display as ipd
-import pav_analysis as ev
-import soundfile as sf
+import numpy as np
+import wave
+import sys
 
-def plot_zcr(name, audio, sample_rate):
-    
-    signal, fm = sf.read("prueba.wav")
+fileName = "prueba.wav"
+spf = wave.open(fileName, "r")
 
-    info = [i.strip().split() for i in open ("prueba.wav").readLines()]
-    zcr = float(3)
+# Extract Raw Audio from Wav File
+signal = spf.readframes(-1)
+signal = np.fromstring(signal, "int16")
+startFonema = 15400
+endFonema = 16000
+fonema = signal[startFonema:endFonema] #segon de 0.77 a 0.8
+tempsFonema = range(startFonema, endFonema)
+senyalFonema = np.column_stack((fonema, tempsFonema))
 
 
-    plt.figure(figsize=(8, 1))
-    plt.plot(audio)
-    plt.gca().set_title(name1)
+# If Stereo
+if spf.getnchannels() == 2:
+    print("Just mono files")
+    sys.exit(0)
 
-    plt.show()
+plt.figure(1)
+plt.title(fileName)
+plt.xlabel("Mostres de: "+str(startFonema)+" a "+str(endFonema)+" de: "+str(startFonema/20000)+" a "+str(endFonema/20000)+ "s")
+plt.ylabel("Senyal")
+plt.plot(fonema)
+plt.show()

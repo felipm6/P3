@@ -14,7 +14,7 @@ namespace upc {
     for (unsigned int l = 0; l < r.size(); ++l) {
   		/// \TODO Compute the autocorrelation r[l]
       /// \FET
-      /// L'autocoorelació: 1r--> inicialitzar a 0; 2n--> Acumular valors; 3r-->divim per la llargada 
+      /// L'autocorrelació: 1r --> inicialitzar a 0; 2n --> Acumular valors; 3r -->divim per la llargada 
 
       r[l] = 0;
 
@@ -68,12 +68,14 @@ namespace upc {
     /// * You can use the standard features (pot, r1norm, rmaxnorm),
     ///   or compute and use other ones.
     /// \FET 
-    /// Mirem si el valor màxim de l'autocorrelació super el nostre llindar
+    /// Mirem si el valor màxim de l'autocorrelació supera el nostre llindar màxim
+    /// A més a més, mirem si es compleixen almenys una de les dues condicions: si un segon llindar de l'autocorrelació és superior a un llindar
+    /// o si la potència supera un valor concret.
 
     if(rmaxnorm >= umaxnorm && (r1norm >= unorm || pot >= pot1)){ //Valores que pasamos por linea de comandos
-      return false;
+      return false; //sonor
     }
-    return true;
+    return true; //sord
   }
 
   float PitchAnalyzer::compute_pitch(vector<float> & x) const {
@@ -99,6 +101,7 @@ namespace upc {
     ///	   .
 	/// In either case, the lag should not exceed that of the minimum value of the pitch.
   ///FET 
+  ///Fem una recerca dels valors del pitch i ens quedem amb el màxim
 
   for (iR = iRMax = (r.begin() + npitch_min); iR < (r.begin() + npitch_max); iR++){
 
