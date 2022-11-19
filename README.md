@@ -53,7 +53,7 @@ Ejercicios básicos
 	    Recuerde configurar los paneles de datos para que el desplazamiento de ventana sea el adecuado, que
 		en esta práctica es de 15 ms.
 		
-		- ![Alt text](capt/parametres_pitch_wave.jpg?raw=true "Estimació amb el wavesurfer")
+		- ![Alt text](capt/estimacion_pitch_wave.jpg?raw=true "Estimació amb el wavesurfer")
 
       - Use el estimador de pitch implementado en el programa `wavesurfer` en una señal de prueba y compare
 	    su resultado con el obtenido por la mejor versión de su propio sistema.  Inserte una gráfica
@@ -82,6 +82,8 @@ Ejercicios de ampliación
 
   * Inserte un *pantallazo* en el que se vea el mensaje de ayuda del programa y un ejemplo de utilización
     con los argumentos añadidos.
+    
+    - ![Alt text](capt/get_pitch.jpg?raw=true "--help funció get_pitch")
 
 - Implemente las técnicas que considere oportunas para optimizar las prestaciones del sistema de estimación
   de pitch.
