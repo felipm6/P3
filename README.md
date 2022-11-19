@@ -13,8 +13,8 @@ Ejercicios básicos
 - Complete el código de los ficheros necesarios para realizar la estimación de pitch usando el programa
   `get_pitch`.
 
-   * Complete el cálculo de la autocorrelación e inserte a continuación el código correspondiente.			    
-
+   * Complete el cálculo de la autocorrelación e inserte a continuación el código correspondiente.	
+ 		    
 	- ![Alt text](codi_auto.jpg?raw=true "Codi Autocorrelació")	
 
    * Inserte una gŕafica donde, en un *subplot*, se vea con claridad la señal temporal de un segmento de
