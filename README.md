@@ -99,10 +99,12 @@ Ejercicios de ampliación
   * Cualquier otra técnica que se le pueda ocurrir o encuentre en la literatura.
 
 - Filtro de Mediana
+
  ![Alt text](capt/mediana.jpg?raw=true "Filtre Mediana")
  
  
  -Center-clipping
+ 
   ![Alt text](capt/clipping.jpg?raw=true "Clipping")
 
 
