@@ -74,12 +74,11 @@ int main(int argc, const char *argv[]) {
   /// \TODO
   /// Preprocess the input signal in order to ease pitch estimation. For instance,
   /// central-clipping or low pass filtering may be used.
-  ///FET 
+  ///FET Aplicat el mètode central-clipping
 
   float maxp = *std::max_element(x.begin(), x.end());
   th = 0.027 * maxp;
-  for (long unsigned int i = 0; i < x.size(); i++)
-  {
+  for (long unsigned int i = 0; i < x.size(); i++){
     if (abs(x[i]) < th){
       x[i] = 0;
     }
@@ -96,17 +95,17 @@ int main(int argc, const char *argv[]) {
   /// \TODO
   /// Postprocess the estimation in order to supress errors. For instance, a median filter
   /// or time-warping may be used.
-  ///FET El filtre de mediana amb zero-padding
+  ///FET Realitzat el filtre de mediana amb zero-padding
 
   vector<float> median(f0);
   float min1, max1;
 
   for (unsigned int i = 2; i < median.size() - 1; i++){
-
     min1 = min(min(median[i - 1], median[i]), median[i + 1]);
-    max1 = max(max(median[i - 1], median[i]), median[i + 1]);
-    f0[i] = median[i - 1] + median[i] + median[i + 1] - min1 - max1;
 
+    max1 = max(max(median[i - 1], median[i]), median[i + 1]);
+
+    f0[i] = median[i - 1] + median[i] + median[i + 1] - min1 - max1;
   }
 
   // Write f0 contour into the output file

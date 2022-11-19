@@ -42,6 +42,7 @@ for m in range(longAutocorrelation):
 
 valor_norm = autocorrelation[600]
 
+#Normalitzem el senyal d'autocorrelació
 for x in range(longAutocorrelation):
     autocorrelation[x] = autocorrelation[x] / valor_norm  
 
