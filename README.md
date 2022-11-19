@@ -15,7 +15,7 @@ Ejercicios básicos
 
    * Complete el cálculo de la autocorrelación e inserte a continuación el código correspondiente.	
  		    
-	- ![Alt text](codi_auto.jpg?raw=true "Codi Autocorrelació")	
+	- ![Alt text](capt/codi_auto.jpg?raw=true "Codi Autocorrelació")	
 
    * Inserte una gŕafica donde, en un *subplot*, se vea con claridad la señal temporal de un segmento de
      unos 30 ms de un fonema sonoro y su periodo de pitch; y, en otro *subplot*, se vea con claridad la
@@ -24,16 +24,16 @@ Ejercicios básicos
 	 NOTA: es más que probable que tenga que usar Python, Octave/MATLAB u otro programa semejante para
 	 hacerlo. Se valorará la utilización de la biblioteca matplotlib de Python.
 	 
-	 - ![Alt text](senyal.jpg?raw=true "Senyal sonora 30 ms")	
+	 - ![Alt text](capt/senyal.jpg?raw=true "Senyal sonora 30 ms")	
 
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
      
-      -![Alt text](codi_pitchMax.jpg?raw=true "Codi per trobar el valor màxim del pitch")
+      -![Alt text](capt/codi_pitchMax.jpg?raw=true "Codi per trobar el valor màxim del pitch")
 
    * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
 
-	- ![Alt text](codi_VU.jpg?raw=true "Codi regla de decisió so / sord")
+	- ![Alt text](capt/codi_VU.jpg?raw=true "Codi regla de decisió so / sord")
 
    * Puede serle útil seguir las instrucciones contenidas en el documento adjunto `código.pdf`.
 
