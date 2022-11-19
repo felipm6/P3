@@ -14,7 +14,7 @@ namespace upc {
     for (unsigned int l = 0; l < r.size(); ++l) {
   		/// \TODO Compute the autocorrelation r[l]
       /// \FET
-      /// L'autocorrelació: 1r --> inicialitzar a 0; 2n --> Acumular valors; 3r -->divim per la llargada 
+      /// L'autocorrelació: 1r --> inicialitzar a 0; 2n --> Acumular valors; 3r --> divim per la llargada 
 
       r[l] = 0;
 
@@ -69,8 +69,8 @@ namespace upc {
     ///   or compute and use other ones.
     /// \FET 
     /// Mirem si el valor màxim de l'autocorrelació supera el nostre llindar màxim
-    /// A més a més, mirem si es compleixen almenys una de les dues condicions: si un segon llindar de l'autocorrelació és superior a un llindar
-    /// o si la potència supera un valor concret.
+    /// A més a més, mirem si es compleixen almenys una de les dues condicions: si el primer valor de de la autocorrelació és superior a un llindar
+    /// (sense contar el 0) o si la potència supera un valor concret.
 
     if(rmaxnorm >= umaxnorm && (r1norm >= unorm || pot >= pot1)){ //Valores que pasamos por linea de comandos
       return false; //sonor

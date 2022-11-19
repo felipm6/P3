@@ -37,10 +37,16 @@ for m in range(longAutocorrelation):
             mostra1 = int(fonema[len(fonema)-(m-len(fonema))-n-1])
             mostra2 = int(fonema[len(fonema)-n-1])
             tmp += mostra1 * mostra2
+    
     autocorrelation.insert(m,tmp)
 
+valor_norm = autocorrelation[600]
+
+for x in range(longAutocorrelation):
+    autocorrelation[x] = autocorrelation[x] / valor_norm  
+
 fig, axs = plt.subplots(2)
-fig.suptitle('30ms de senyal sonora i la seva autocorrelaciÃ³')
+fig.suptitle('30ms de senyal sonora i la seva autocorrelació')
 axs[0].plot(fonema)
 axs[1].plot(autocorrelation)
 plt.show()
