@@ -13,22 +13,9 @@ Ejercicios básicos
 - Complete el código de los ficheros necesarios para realizar la estimación de pitch usando el programa
   `get_pitch`.
 
-   * Complete el cálculo de la autocorrelación e inserte a continuación el código correspondiente.
-   
-   '''void PitchAnalyzer::autocorrelation(const vector<float> &x, vector<float> &r) const {
-    for (unsigned int l = 0; l < r.size(); ++l) {
-  		/// \TODO Compute the autocorrelation r[l]
-      /// \FET
-      /// Per calcular la autocorrelació: 1r --> inicialitzar a 0; 2n --> Acumular valors; 3r -->divim per la llargada.
-      r[l] = 0;
-      for (unsigned int n = l; n < x.size(); n++){
-        r[l] += x[n] * x[n - l];
-      }
-      r[l] /= x.size();
-    }
-    if (r[0] == 0.0F) //to avoid log() and divide zero 
-      r[0] = 1e-10; 
-  } '''
+   * Complete el cálculo de la autocorrelación e inserte a continuación el código correspondiente.			    
+
+	- ![Alt text](codi_auto.jpg?raw=true "Codi Autocorrelació")	
 
    * Inserte una gŕafica donde, en un *subplot*, se vea con claridad la señal temporal de un segmento de
      unos 30 ms de un fonema sonoro y su periodo de pitch; y, en otro *subplot*, se vea con claridad la
@@ -36,6 +23,8 @@ Ejercicios básicos
 
 	 NOTA: es más que probable que tenga que usar Python, Octave/MATLAB u otro programa semejante para
 	 hacerlo. Se valorará la utilización de la biblioteca matplotlib de Python.
+	 
+	 - ![Alt text](senyal.jpg?raw=true "Senyal sonora 30 ms")	
 
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
