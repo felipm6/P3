@@ -28,8 +28,12 @@ Ejercicios básicos
 
    * Determine el mejor candidato para el periodo de pitch localizando el primer máximo secundario de la
      autocorrelación. Inserte a continuación el código correspondiente.
+     
+      -![Alt text](codi_pitchMax.jpg?raw=true "Codi per trobar el valor màxim del pitch")
 
    * Implemente la regla de decisión sonoro o sordo e inserte el código correspondiente.
+
+	- ![Alt text](codi_VU.jpg?raw=true "Codi regla de decisió so / sord")
 
    * Puede serle útil seguir las instrucciones contenidas en el documento adjunto `código.pdf`.
 
