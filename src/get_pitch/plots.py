@@ -1,7 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import wave
-import sys
 
 fileName = "prueba.wav"
 spf = wave.open(fileName, "r")
@@ -16,14 +15,32 @@ tempsFonema = range(startFonema, endFonema)
 senyalFonema = np.column_stack((fonema, tempsFonema))
 
 
-# If Stereo
-if spf.getnchannels() == 2:
-    print("Just mono files")
-    sys.exit(0)
+longAutocorrelation = len(fonema)*2
+autocorrelation = [0]
+mostra1 = 0
+mostra2 = 0
+tmp = 0
 
-plt.figure(1)
-plt.title(fileName)
-plt.xlabel("Mostres de: "+str(startFonema)+" a "+str(endFonema)+" de: "+str(startFonema/20000)+" a "+str(endFonema/20000)+ "s")
-plt.ylabel("Senyal")
-plt.plot(fonema)
+
+for m in range(longAutocorrelation):
+    tmp = 0
+    mostra1 = 0
+    mostra2 = 0
+    if m<len(fonema):
+        for n in range(m):
+            mostra1 = int(fonema[n])
+            mostra2 = int(fonema[len(fonema) - (m - n)])
+            tmp += mostra1*mostra2
+    else:
+        for n in range(len(fonema)-(m-len(fonema))):
+            #print(m,n)
+            mostra1 = int(fonema[len(fonema)-(m-len(fonema))-n-1])
+            mostra2 = int(fonema[len(fonema)-n-1])
+            tmp += mostra1 * mostra2
+    autocorrelation.insert(m,tmp)
+
+fig, axs = plt.subplots(2)
+fig.suptitle('30ms de senyal sonora i la seva autocorrelaciÃ³')
+axs[0].plot(fonema)
+axs[1].plot(autocorrelation)
 plt.show()
