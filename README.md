@@ -98,6 +98,14 @@ Ejercicios de ampliación
     gobiernan la decisión sonoro/sordo.
   * Cualquier otra técnica que se le pueda ocurrir o encuentre en la literatura.
 
+- Filtro de Mediana
+ ![Alt text](capt/mediana.jpg?raw=true "Filtre Mediana")
+ 
+ 
+ -Center-clipping
+  ![Alt text](capt/clipping.jpg?raw=true "Clipping")
+
+
   Encontrará más información acerca de estas técnicas en las [Transparencias del Curso](https://atenea.upc.edu/pluginfile.php/2908770/mod_resource/content/3/2b_PS%20Techniques.pdf)
   y en [Spoken Language Processing](https://discovery.upc.edu/iii/encore/record/C__Rb1233593?lang=cat).
   También encontrará más información en los anexos del enunciado de esta práctica.
