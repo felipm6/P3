@@ -68,6 +68,8 @@ Ejercicios básicos
     y el *score* TOTAL proporcionados por `pitch_evaluate` en la evaluación de la base de datos 
 	`pitch_db/train`..
 	
+	- Utilitzem uns llindars de "umaxnorm" = 0.4 "unorm" = 0.3 i "pot1" = -10. A més d'utilitzar uns mètodes de pre/post processat, com per xemple el center-clipping amb un llindar de 0,027 i un filtre de mediana. Obtenim una score del 91.14%.
+	-	
 	- ![Alt text](capt/score.jpg?raw=true "Score final del nostre programa")
 
 Ejercicios de ampliación
