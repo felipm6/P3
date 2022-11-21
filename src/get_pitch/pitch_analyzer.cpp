@@ -104,10 +104,8 @@ namespace upc {
   ///Fem una recerca dels valors del pitch i ens quedem amb el màxim
 
   for (iR = iRMax = (r.begin() + npitch_min); iR < (r.begin() + npitch_max); iR++){
-
     if (*iR > *iRMax)
       iRMax = iR;
-      
   }
 
     unsigned int lag = iRMax - r.begin();

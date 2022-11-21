@@ -29,7 +29,7 @@ Options:
     --version   Show the version of the project
     -m REAL, --umaxnorm=REAL   Umbral del màximo de la autocorrelación [default: 0.4]
     -u REAL, --unorm=REAL   Segundo umbral autocorrelación [default: 0.3]
-    -p REAL, --pot1=REAL   Umbral de potencia [default: -10]
+    -p REAL, --pot1=REAL   Umbral de potencia [default: -16]
 
 
 Arguments:
